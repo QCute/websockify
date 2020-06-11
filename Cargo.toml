@@ -1,0 +1,30 @@
+[package]
+name = "websockify"
+version = "1.0.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.31"
+log = "0.4.8"
+env_logger = "0.7.1"
+structopt = "0.3.14"
+clap = "2.33.1"
+futures = "0.3.5"
+futures-util = "0.3.5"
+async-tls = "0.7.0"
+async-channel = "1.1.0"
+rustls = "0.17.0"
+tungstenite = "0.10.0"
+async-tungstenite = "0.5.0"
+
+[dependencies.async-std]
+version = "1.6.0"
+features = ["unstable"]
+
+[profile.release]
+opt-level = 'z'  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = 'abort'
